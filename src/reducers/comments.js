@@ -1,12 +1,13 @@
 const comments = (state = [], action) => {
+  console.log("state: ", state);
+
     switch (action.type) {
       case 'ADD_COMMENT':
-        console.log("state: ", state);
         return [
           ...state,
           {
-            id: action.id,
-            id_task: action.id_task,
+            comment_id: action.id,
+            id_todo: state.todo_id,
             text: action.text
           }
         ]

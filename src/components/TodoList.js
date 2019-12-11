@@ -1,11 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Todo from './Todo'
+import { ListGroup } from 'react-bootstrap'
+
+import './App.css';
 
 const TodoList = ({ todos, toggleTodo }) => (
-  <ul>
+  <ListGroup className="listTodos">
     {todos.map(todo =>
-      <div>
+      <div style={{'display': 'inline'}}>
         <Todo
         key={todo.id}
         {...todo}
@@ -13,13 +16,14 @@ const TodoList = ({ todos, toggleTodo }) => (
         />
       </div>
     )}
-  </ul>
+  </ListGroup>
 )
 
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     completed: PropTypes.bool.isRequired,
+    selected: PropTypes.bool.isRequired,
     text: PropTypes.string.isRequired
   }).isRequired).isRequired,
   toggleTodo: PropTypes.func.isRequired

@@ -1,8 +1,17 @@
 body {
     background-color: #282c34;
     color: white;
-    padding-right: 400px;
-    padding-left: 400px;
+    padding: 50px;
     font-family: Arial;
-    text-align: center;
+    text-align: justify;
+}
+
+.cardContainer{
+    margin-top: 5px;
+}
+
+.listTodos{
+    list-style: 'none outside none';
+    text-align: justify;
+    margin: 5px;
 }
