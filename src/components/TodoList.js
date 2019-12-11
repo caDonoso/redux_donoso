@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Todo from './Todo'
-import Footer from './Footer'
 
 const TodoList = ({ todos, toggleTodo }) => (
   <ul>
@@ -12,7 +11,6 @@ const TodoList = ({ todos, toggleTodo }) => (
         {...todo}
         onClick={() => toggleTodo(todo.id)}
         />
-        <Footer />
       </div>
     )}
   </ul>
