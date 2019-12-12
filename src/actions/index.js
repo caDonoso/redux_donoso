@@ -6,6 +6,11 @@ export const addTodo = text => ({
     text
 })
 
+export const deleteTodo = id => ({
+  type: 'DELETE_TODO',
+  id: id,
+})
+
 export const addComment = (text, id_todo_selected) => ({
     type: 'ADD_COMMENT',
     id: nextCommentId++,

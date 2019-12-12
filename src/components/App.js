@@ -2,6 +2,7 @@ import React from 'react'
 
 //Components
 import Footer from './Footer'
+import Welcome from '../containers/Welcome'
 import AddTodo from '../containers/AddTodo'
 import VisibleTodoList from '../containers/VisibleTodoList'
 import AddComment from '../containers/AddComment'
@@ -13,6 +14,9 @@ import './App.css';
 
 const App = () => (
   <div>
+    <Row>
+      <Welcome />
+    </Row>
     <Row>
       <Col>
         <AddTodo />

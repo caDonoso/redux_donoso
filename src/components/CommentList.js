@@ -13,7 +13,7 @@ const CommentList = ({ comments }) => {
     <ul>
     {comments.map(comment =>
       id_todo_selected === comment.id_todo ?
-      <Card className="cardContainer">
+      <Card className="cardContainer" style={{ width: '18rem' }}>
         <Card.Body>
           <Comment
             key={comment.toString()}
