@@ -4,7 +4,7 @@ const todos = (state = [], action) => {
       return [
         ...state,
         {
-          id: action.id,
+          todo_id: action.id,
           text: action.text,
           completed: false,
           selected: false,
@@ -12,15 +12,15 @@ const todos = (state = [], action) => {
       ]
     case 'TOGGLE_TODO':
       return state.map(todo =>
-        (todo.id === action.id)
+        (todo.todo_id === action.id)
           ? {...todo, completed: !todo.completed}
           : todo
       )
     case 'TOGGLE_TODO_SELECTED':
       return state.map(todo =>
-        (todo.id === action.id)
-          ? {...todo, selected: !todo.selected}
-          : todo
+        (todo.todo_id === action.id)
+          ? {...todo, selected: true}
+          : {...todo, selected: false}
       )
     default:
       return state

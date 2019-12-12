@@ -1,20 +1,19 @@
 const comments = (state = [], action) => {
-  console.log("state: ", state);
-
-    switch (action.type) {
-      case 'ADD_COMMENT':
-        return [
-          ...state,
-          {
-            comment_id: action.id,
-            id_todo: state.todo_id,
-            text: action.text
-          }
-        ]
-      default:
-        return state
-    }
+  console.log("action: ", action);
+  switch (action.type) {
+    case 'ADD_COMMENT':
+      return [
+        ...state,
+        {
+          comment_id: action.id,
+          id_todo: action.id_todo,
+          text: action.text
+        }
+      ]
+    default:
+      return state
   }
-  
-  export default comments
+}
+
+export default comments
   

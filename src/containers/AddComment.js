@@ -1,14 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addComment } from '../actions'
+import { toggleTodoSelected } from '../actions'
 import { Button, Form, Row, DropdownButton, Dropdown } from 'react-bootstrap';
 import { useSelector } from 'react-redux'
+import { getTodoSelected } from '../utils'
 
 import './style.css';
 
 const AddComment = ({ dispatch }) => {
   let input;
   let todos = useSelector(state => state.todos);
+  let id_todo_selected = getTodoSelected(todos);
   return (
     <div>
         {todos.length !== 0 ?
@@ -16,7 +19,7 @@ const AddComment = ({ dispatch }) => {
                 <Row>
                     <DropdownButton style={{'margin-bottom': "10px"}} id="dropdown-basic-button" title="Task selector">
                         {todos.map(todo =>
-                            <Dropdown.Item key={todo.id} > {todo.text} </Dropdown.Item>
+                            <Dropdown.Item key={todo.id} onClick={() => dispatch(toggleTodoSelected(todo.todo_id))}> {todo.text} </Dropdown.Item>
                         )}
                     </DropdownButton>
                 </Row>
@@ -26,7 +29,7 @@ const AddComment = ({ dispatch }) => {
                         if (!input.value.trim()) {
                         return
                         }
-                        dispatch(addComment(input.value))
+                        dispatch(addComment(input.value, id_todo_selected))
                         input.value = ''
                     }}>
                         <Form.Control className="inputAdd" type="text" ref={node => input = node} placeholder="Add a comment" />

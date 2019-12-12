@@ -10,9 +10,9 @@ const TodoList = ({ todos, toggleTodo }) => (
     {todos.map(todo =>
       <div style={{'display': 'inline'}}>
         <Todo
-        key={todo.id}
+        key={todo.todo_id}
         {...todo}
-        onClick={() => toggleTodo(todo.id)}
+        onClick={() => toggleTodo(todo.todo_id)}
         />
       </div>
     )}

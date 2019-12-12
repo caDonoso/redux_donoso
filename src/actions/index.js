@@ -1,5 +1,4 @@
 let nextTodoId = 0
-let todoSelected = 0
 let nextCommentId = 0
 export const addTodo = text => ({
     type: 'ADD_TODO',
@@ -7,10 +6,10 @@ export const addTodo = text => ({
     text
 })
 
-export const addComment = (text) => ({
+export const addComment = (text, id_todo_selected) => ({
     type: 'ADD_COMMENT',
     id: nextCommentId++,
-    id_task: todoSelected,
+    id_todo: id_todo_selected,
     text
 })
 
