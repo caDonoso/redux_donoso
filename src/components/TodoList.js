@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Todo from './Todo'
-import { ListGroup } from 'react-bootstrap'
 import { Card } from 'react-bootstrap';
+import { Transition, animated } from 'react-spring/renderprops';
 
 import './App.css';
 
@@ -10,15 +10,28 @@ const TodoList = ({ todos, toggleTodo, deleteTodo }) => (
   <div>
     <ul>
     {todos.map(todo =>
-      <Card className="cardContainer" style={{ width: '18rem' }}>
-        <Card.Body style={{'text-align': 'center'}}>
-          <Todo
-            key={todo.todo_id}
-            {...todo}
-            toggleTodo={() => toggleTodo(todo.todo_id)}
-            deleteTodo={() => deleteTodo(todo.todo_id)}/>
-        </Card.Body>
-      </Card>
+      <Transition
+        native
+        items={todo.enabled}
+        from={{opacity: 0}}
+        enter={{opacity: 1}}
+        leave={{opacity: 0}}
+        config={{ duration: 500 }}
+      >
+        {show => show && (props => (
+          <animated.div style={props} key={todo.text}>
+            <Card>
+              <Card.Body style={{'textAlign': 'center'}}>
+                <Todo
+                  key={todo.todo_id}
+                  {...todo}
+                  toggleTodo={() => toggleTodo(todo.todo_id)}
+                  deleteTodo={() => deleteTodo(todo.todo_id)}/>
+              </Card.Body>
+            </Card>
+          </animated.div>
+        ))}
+      </Transition>
     )}
     </ul>
   </div>
@@ -26,7 +39,7 @@ const TodoList = ({ todos, toggleTodo, deleteTodo }) => (
 
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    id: PropTypes.number,
     completed: PropTypes.bool.isRequired,
     selected: PropTypes.bool.isRequired,
     text: PropTypes.string.isRequired

@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Button } from 'react-bootstrap';
 
+import './App.css';
+
 const Link = ({ active, children, onClick }) => (
     <Button
        onClick={onClick}

@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Button } from 'react-bootstrap'
-import { ListGroup } from 'react-bootstrap'
 
 
 import './App.css';
@@ -13,16 +12,18 @@ const Todo = ({ toggleTodo, deleteTodo, completed, text}) => (
       onClick={toggleTodo}
       style={{
         textDecoration: completed ? 'line-through' : 'none',
-        'margin-bottom': '5px',
-        'font-size': '18px'
+        'marginBottom': '5px',
+        'fontSize': '18px',
+        'color': 'black',
       }}
     >{text}</p>
-    <Button className="btn-block" variant="danger" style={{'margin-left': '5px'}} onClick={() => deleteTodo()}>Delete</Button>
+    <Button variant="danger" onClick={() => deleteTodo()}>Delete</Button>
   </div>
 )
 
 Todo.propTypes = {
   toggleTodo: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired,
   completed: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired,
 }

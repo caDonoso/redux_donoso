@@ -8,17 +8,15 @@ const todos = (state = [], action) => {
           text: action.text,
           completed: false,
           selected: false,
+          enabled: true,
         }
       ]
     case 'DELETE_TODO':
-      let newState = [...state];
-      for (let i = 0; i < newState.length; i++) {
-        let element = newState[i];
-        if(element.todo_id === action.id){
-          newState.splice(i, 1);
-        }   
-      }
-      return newState;
+      return state.map(todo =>
+        (todo.todo_id === action.id)
+          ? {...todo, enabled: false}
+          : todo
+      )
     case 'TOGGLE_TODO':
       return state.map(todo =>
         (todo.todo_id === action.id)

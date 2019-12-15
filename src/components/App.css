@@ -1,17 +1,37 @@
-body {
+.section-container{
     background-color: #282c34;
-    color: white;
-    padding: 25px;
-    font-family: Arial;
+    color: black;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: justify;
 }
 
-.cardContainer{
+.card{
     margin-top: 20px;
+    right: 50px;
 }
 
-.listTodos{
-    list-style: 'none outside none';
-    text-align: justify;
-    margin: 5px;
+.btnAdd{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.inputAdd{
+    margin-top: 10px;
+}
+
+#section-task{
+    background-color: slateblue;
+    color: white;
+    margin: 10px;
+    padding-left: 3em;
+    padding-bottom: 2em;
+    border-radius: 5px;
+}
+
+#section-comment{
+    background-color: #85144b;
+    margin: 10px;
+    padding: 2em;
+    border-radius: 5px;
 }

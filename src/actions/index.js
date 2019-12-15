@@ -18,6 +18,17 @@ export const addComment = (text, id_todo_selected) => ({
     text
 })
 
+export const editComment = (id_comment) => ({
+  type: 'EDIT_COMMENT',
+  id: id_comment,
+})
+
+export const updateComment = (id_comment, new_text) => ({
+  type: 'UPDATE_COMMENT',
+  id: id_comment,
+  text: new_text
+})
+
 export const setVisibilityFilter = filter => ({
   type: 'SET_VISIBILITY_FILTER',
   filter
