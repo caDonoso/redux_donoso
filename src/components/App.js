@@ -7,7 +7,7 @@ import AddTodo from '../containers/AddTodo'
 import VisibleTodoList from '../containers/VisibleTodoList'
 import AddComment from '../containers/AddComment'
 import VisibleCommentList from '../containers/VisibleCommentList'
-import { Transition, animated } from 'react-spring/renderprops';
+import { Transition } from 'react-spring/renderprops';
 
 //Styles
 import './App.css';
@@ -29,7 +29,7 @@ class App extends Component {
           </div>
         </div>
         <div className="row justify-content-md-center">
-          <div id="section-task" className="col-md-5 col-sm-11">
+          <div id="section-task" className="col-md-5 col-sm-12">
             <AddTodo toggle={this.toggle} />
             <VisibleTodoList />
             <Footer />
@@ -43,7 +43,7 @@ class App extends Component {
             >
               {toggle => 
                 toggle 
-                  ? props => <div style={props} id="section-comment" className="col-md-5 col-sm-11">
+                  ? props => <div style={props} id="section-comment" className="col-md-5 col-sm-12">
                     <AddComment />
                     <VisibleCommentList />
                   </div>

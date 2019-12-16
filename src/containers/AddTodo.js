@@ -27,7 +27,7 @@ const AddTodo = ({ dispatch, toggle }) => {
                   dispatch(addTodo(input.value))
                   input.value = ''
                 }}>
-                  <Form.Control className="inputAdd" type="text" ref={node => input = node} placeholder="Add a task" />
+                  <Form.Control style={{'width': '150px', 'marginTop': '10px'}} type="text" ref={node => input = node} placeholder="Add a task" />
                   <Button className="btnAdd" type="submit">Add</Button>
                 </Form>
               </Row>

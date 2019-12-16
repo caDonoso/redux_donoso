@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import { Button, Form} from 'react-bootstrap'
 
 import './App.css';
@@ -8,14 +7,14 @@ import './App.css';
 const Comment = ({ text, editComment}) => {
   return (
   <div> 
-    <Form className="form-inline">
+    <Form style={{'justifyContent': 'flex-end'}}>
       <p style={{
         'marginBottom': '5px',
-        'fontSize': '18px'
+        'fontSize': '15px'
       }}>
         {text}
       </p>
-      <Button variant="warning" onClick={() => editComment()}>Editar</Button>
+      <Button size="sm" style={{'marginLeft': '5px'}} variant="warning" onClick={() => editComment()}>Editar</Button>
     </Form>
   </div>
   )

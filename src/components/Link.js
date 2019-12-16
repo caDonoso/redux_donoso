@@ -11,6 +11,7 @@ const Link = ({ active, children, onClick }) => (
        style={{
            marginLeft: '4px',
        }}
+       size="sm"
        variant='dark'
     >
       {children}

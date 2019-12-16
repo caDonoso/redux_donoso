@@ -1,5 +1,7 @@
+/**
+ * Reducers of Comments.
+ */
 const comments = (state = [], action) => {
-  console.log("action: ", action);
   switch (action.type) {
     case 'ADD_COMMENT':
       return [

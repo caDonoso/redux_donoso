@@ -12,8 +12,7 @@ import './App.css';
 const CommentList = ({ comments, editComment, updateComment }) => {
   let todos = useSelector(state => state.todos);
   let id_todo_selected = getTodoSelected(todos);
-  let input;
-  console.log("id_todo_selected: ", id_todo_selected);
+  let input; //Store the input text value
   return (
   <div>
     <ul>
@@ -25,6 +24,7 @@ const CommentList = ({ comments, editComment, updateComment }) => {
         enter={{opacity: 1}}
         leave={{opacity: 0}}
         config={{ duration: 500 }}
+        key={comment.comment_id}
       >
         {show => show && (props => (
           id_todo_selected === comment.id_todo ?
@@ -37,11 +37,10 @@ const CommentList = ({ comments, editComment, updateComment }) => {
                       if (!input.value.trim()) {
                         return
                       }
-                      console.log("input.value: ", input.value)
                       updateComment(comment.comment_id, input.value)
                       input.value = ''
                     }}>
-                      <Form.Control className="inputAdd" type="text" ref={node => input = node} defaultValue={comment.text} />
+                      <Form.Control type="text" ref={node => input = node} defaultValue={comment.text} />
                       <Button className="btnAdd" type="submit" variant="success">Guardar</Button>
                     </Form>
                     :
@@ -64,7 +63,7 @@ const CommentList = ({ comments, editComment, updateComment }) => {
 
 CommentList.propTypes = {
   comments: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    id: PropTypes.number,
     text: PropTypes.string.isRequired
   }).isRequired).isRequired,
 }

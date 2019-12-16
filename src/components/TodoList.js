@@ -17,13 +17,13 @@ const TodoList = ({ todos, toggleTodo, deleteTodo }) => (
         enter={{opacity: 1}}
         leave={{opacity: 0}}
         config={{ duration: 500 }}
+        key={todo.todo_id}
       >
         {show => show && (props => (
-          <animated.div style={props} key={todo.text}>
+          <animated.div style={props}>
             <Card>
               <Card.Body style={{'textAlign': 'center'}}>
                 <Todo
-                  key={todo.todo_id}
                   {...todo}
                   toggleTodo={() => toggleTodo(todo.todo_id)}
                   deleteTodo={() => deleteTodo(todo.todo_id)}/>
